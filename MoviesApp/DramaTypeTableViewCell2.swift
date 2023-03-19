@@ -1,26 +1,24 @@
 //
-//  DramaTypeTableViewCell.swift
+//  DramaTypeTableViewCell2.swift
 //  MoviesApp
 //
-//  Created by Amaal Almutairi on 23/08/1444 AH.
+//  Created by Amaal Almutairi on 26/08/1444 AH.
 //
 
 import UIKit
 
-class DramaTypeTableViewCell: UITableViewCell {
-
+class DramaTypeTableViewCell2: UITableViewCell {
+    
    
-    
-    @IBOutlet weak var DramaTypeCollectionv: UICollectionView!
-    
+    @IBOutlet weak var DramaTypeCollectionv2: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        DramaTypeCollectionv.delegate = self
-        DramaTypeCollectionv.dataSource = self
+        DramaTypeCollectionv2.delegate = self
+        DramaTypeCollectionv2.dataSource = self
         // Initialization code
     }
-
+//cellTable2
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -29,20 +27,18 @@ class DramaTypeTableViewCell: UITableViewCell {
 
 }
 
-
-
-
-    extension DramaTypeTableViewCell:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
+    
+    extension DramaTypeTableViewCell2:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+        
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data[collectionView.tag].movies.count
-//        return data[collectionView.tag].movies.count
+        //        return data[collectionView.tag].movies.count
     }
-    //collectionCellHighRated
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! DramaTypeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell2", for: indexPath) as! DramaTypeCollectionViewCell2
         return cell
     }
-    
         
         //MARK: - UICollectionViewDelegateFlowLayout
 
@@ -56,8 +52,4 @@ class DramaTypeTableViewCell: UITableViewCell {
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
             return 5
         }
-  
-        
-    
-    
 }
