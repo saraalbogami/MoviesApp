@@ -8,7 +8,10 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    
+    var movies:[MoviesData] = []
 
+    
     @IBOutlet weak var movieType: UILabel!
     
     @IBAction func showMoreBtn(_ sender: Any) {
@@ -20,17 +23,18 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-//    @IBAction func pageControler(_ sender: Any) {
-//
-//    }
+
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.delegate = self
         collectionView.dataSource = self
-        pageControlTopRated.numberOfPages = data.count
-
+        pageControlTopRated.numberOfPages = movies.count
+         featch()
+        
         startTimer()
+        
         // Initialization code
     }
 
@@ -43,13 +47,67 @@ class TableViewCell: UITableViewCell {
     var timer: Timer?
     var currentCellIndex = 0
     
+    func featch()  {
+        let movieURL = "https://4855c3e4-c1ea-4aec-84dc-621e909c441d.mock.pstmn.io/movies"
+        // https://4855c3e4-c1ea-4aec-84dc-621e909c441d.mock.pstmn.io/movies
+
+//       print(movieURL)
+       
+      let task = URLSession.shared.dataTask(with: URL(string:movieURL)!,completionHandler: { data, response, error in
+                
+                guard let data = data, error == nil else {
+                    print("somthing went wrong \(error?.localizedDescription)")
+                    print(data ?? "no data ")
+                    return
+                }
+          
+          
+          
+//
+          if let response = response {
+              print(response)
+
+          }
+                // have data
+           // var movies:MoviesData?
+            
+            do{
+                // have data
+                self.movies = try JSONDecoder().decode([MoviesData].self, from: data)
+
+            }catch{
+               print("failed to convert")
+            }
+             
+//          guard let json = self.movies else {
+//                 return
+//            }
+          print(self.movies)
+          
+//          print(self.movies[0].movie_name)
+//            print(json.movie_name)
+//            print(json.movie_IMDb_rate)
+//            print(json.movie_genres)
+//            print(json.movie_duration)
+         
+
+        })
+        task.resume()
+       
+        
+        collectionView.reloadData()
+      
+    }
     func startTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(moveToNexIndex), userInfo: nil, repeats: true)
+        //
+        if currentCellIndex != 0 {
+            timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(moveToNexIndex), userInfo: nil, repeats: true)
+        }
        
     }
     
     @objc func moveToNexIndex(){
-        if currentCellIndex < data.count - 1 {
+        if currentCellIndex < movies.count - 1 {
             currentCellIndex += 1
             
         }else {
@@ -66,8 +124,8 @@ class TableViewCell: UITableViewCell {
 extension TableViewCell:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return data[collectionView.tag].movies.count
+        print("SSS:\(movies.count)")
+        return movies.count
 //        return data[collectionView.tag].movies.count
     }
     //collectionCellHighRated
@@ -75,7 +133,11 @@ extension TableViewCell:UICollectionViewDelegate, UICollectionViewDataSource,UIC
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCellHighRated", for: indexPath) as! HighRatedCollectionViewCell
         
-        
+        cell.imageHighRated.image =  UIImage(named: movies[indexPath.row].moviePoster)
+//        cell.starsImg.image = UIImage(named: movies[indexPath.row])
+        cell.movieNameLabel.text = movies[indexPath.row].movieName
+        cell.ratedOutOf5.text = String(movies[indexPath.row].movieIMDBRate)
+        cell.duration.text = movies[indexPath.row].movieDuration
         return cell
     }
     

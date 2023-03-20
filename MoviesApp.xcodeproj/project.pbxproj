@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E06CA2A029C6FAFB002F3B41 /* MoviesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06CA29F29C6FAFB002F3B41 /* MoviesData.swift */; };
+		E06CA2A229C827EA002F3B41 /* MoviesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06CA2A129C827EA002F3B41 /* MoviesManager.swift */; };
 		E0B7507229C0FADC00EEAABE /* HighRatedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7507129C0FADC00EEAABE /* HighRatedCollectionViewCell.swift */; };
 		E0B7507429C0FC3200EEAABE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7507329C0FC3200EEAABE /* TableViewCell.swift */; };
 		E0B7507629C1117B00EEAABE /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7507529C1117B00EEAABE /* data.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E06CA29F29C6FAFB002F3B41 /* MoviesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesData.swift; sourceTree = "<group>"; };
+		E06CA2A129C827EA002F3B41 /* MoviesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesManager.swift; sourceTree = "<group>"; };
 		E0B7507129C0FADC00EEAABE /* HighRatedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighRatedCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0B7507329C0FC3200EEAABE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		E0B7507529C1117B00EEAABE /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				E0E439FF29BDD8F4004FF567 /* ViewController.swift */,
 				E0B7507529C1117B00EEAABE /* data.swift */,
 				E0E43A0129BDD8F4004FF567 /* Main.storyboard */,
+				E06CA29F29C6FAFB002F3B41 /* MoviesData.swift */,
+				E06CA2A129C827EA002F3B41 /* MoviesManager.swift */,
 				E0B7507729C171C000EEAABE /* DramaTypeTableViewCell.swift */,
 				E0B750C129C6576200EEAABE /* DramaTypeTableViewCell2.swift */,
 				E0B7507929C171E900EEAABE /* DramaTypeCollectionViewCell.swift */,
@@ -166,6 +172,8 @@
 				E0B7507829C171C000EEAABE /* DramaTypeTableViewCell.swift in Sources */,
 				E0E439FC29BDD8F4004FF567 /* AppDelegate.swift in Sources */,
 				E0B7507C29C19C5500EEAABE /* TableViewController.swift in Sources */,
+				E06CA2A029C6FAFB002F3B41 /* MoviesData.swift in Sources */,
+				E06CA2A229C827EA002F3B41 /* MoviesManager.swift in Sources */,
 				E0E439FE29BDD8F4004FF567 /* SceneDelegate.swift in Sources */,
 				E0B7507429C0FC3200EEAABE /* TableViewCell.swift in Sources */,
 				E0B750C629C657EE00EEAABE /* DramaTypeCollectionViewCell2.swift in Sources */,

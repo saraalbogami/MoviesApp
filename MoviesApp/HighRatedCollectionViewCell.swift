@@ -19,4 +19,7 @@ class HighRatedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var moveType: UILabel!
     
+    @IBOutlet weak var starsImg: UIImageView!
+    
+    @IBOutlet weak var duration: UILabel!
 }

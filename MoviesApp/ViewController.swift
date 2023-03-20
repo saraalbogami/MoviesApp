@@ -9,9 +9,9 @@ import UIKit
 
 
 
-
-var data = [MovieData(sectionType: "High Rated", movies: ["Top Gun ","4.8 out of 5","Action . 2 hr  9 min"]),MovieData(sectionType: "High Rated", movies: ["Top Gun ","4.8 out of 5","Action . 2 hr  9 min"]),MovieData(sectionType: "High Rated", movies: ["Top Gun ","4.8 out of 5","Action . 2 hr  9 min"])
-]
+//
+//var data = [MovieData(sectionType: "High Rated", movies: ["Top Gun ","4.8 out of 5","Action . 2 hr  9 min"]),MovieData(sectionType: "High Rated", movies: ["Top Gun ","4.8 out of 5","Action . 2 hr  9 min"]),MovieData(sectionType: "High Rated", movies: ["Top Gun ","4.8 out of 5","Action . 2 hr  9 min"])
+//]
 
 //var data = [MovieData]()
 
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableview.dataSource = self
         tableview.delegate = self
-        
+        tableview.reloadData()
     }
 
 

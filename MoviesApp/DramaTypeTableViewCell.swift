@@ -9,8 +9,8 @@ import UIKit
 
 class DramaTypeTableViewCell: UITableViewCell {
 
-   
-    
+    var actors:[Actors] = []
+
     @IBOutlet weak var DramaTypeCollectionv: UICollectionView!
     
     
@@ -34,12 +34,13 @@ class DramaTypeTableViewCell: UITableViewCell {
 
     extension DramaTypeTableViewCell:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data[collectionView.tag].movies.count
+        return actors.count
 //        return data[collectionView.tag].movies.count
     }
     //collectionCellHighRated
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! DramaTypeCollectionViewCell
+        cell.DramaTypeImage.image = UIImage(named:actors[indexPath.count].actorImage)
         return cell
     }
     
@@ -54,7 +55,7 @@ class DramaTypeTableViewCell: UITableViewCell {
         
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 5
+            return 0
         }
   
         
