@@ -52,6 +52,19 @@ struct MoviesData: Codable {
     }
 }
 
+
+
+struct RateMovie: Codable {
+    let id, movieID, directorID: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case movieID = "movie_id"
+        case directorID = "director_id"
+    }
+}
+
+
 //
 //struct Actors: Codable {
 //    let id, actorName: String

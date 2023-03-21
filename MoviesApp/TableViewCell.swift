@@ -10,7 +10,7 @@ import UIKit
 class TableViewCell: UITableViewCell {
     
     var movies:[MoviesData] = []
-
+    var ratesMovie:[RateMovie] = []
     
     @IBOutlet weak var movieType: UILabel!
     
@@ -88,6 +88,13 @@ class TableViewCell: UITableViewCell {
         
       
     }
+    
+    func fetchRateMovie(){
+        let movieURL = "https://7f51f255-70c2-4d57-a519-652683a43e1d.mock.pstmn.io/moviesDirectors/:movie_id"
+        
+//    https://7f51f255-70c2-4d57-a519-652683a43e1d.mock.pstmn.io/reviews/:movie_id
+    }
+    
     func startTimer(){
         //
 //        if currentCellIndex != 0 {
@@ -150,6 +157,11 @@ extension TableViewCell:UICollectionViewDelegate, UICollectionViewDataSource,UIC
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let vc =
+////        let vc = storyboard?.instantiateViewController(withIdentifier: "MovieDetailsVC") as? MovieDetailsVC
+//    }
         
 //        cell.imageHighRated.image = MovieData.
 //        cell.name =""

@@ -164,7 +164,7 @@
                                                 </label>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="fKz-qc-jmJ">
                                                     <rect key="frame" x="138.66666666666666" y="250.33333333333337" width="115.66666666666666" height="26"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </pageControl>
@@ -248,8 +248,8 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="193" translatesAutoresizingMaskIntoConstraints="NO" id="Tat-GJ-LZT">
-                                                    <rect key="frame" x="20" y="17.000000000000004" width="353" height="34.333333333333343"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="Tat-GJ-LZT">
+                                                    <rect key="frame" x="13" y="17.000000000000004" width="360" height="34.333333333333343"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riN-Xt-YJ3">
                                                             <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="34.333333333333336"/>
@@ -258,7 +258,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1E-yd-EoY">
-                                                            <rect key="frame" x="243.33333333333329" y="0.0" width="109.66666666666666" height="34.333333333333336"/>
+                                                            <rect key="frame" x="250.33333333333329" y="0.0" width="109.66666666666666" height="34.333333333333336"/>
                                                             <color key="tintColor" systemColor="systemOrangeColor"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="Show more"/>
@@ -344,7 +344,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-Ze-cDg">
-                                                    <rect key="frame" x="20" y="20" width="270" height="34.333333333333329"/>
+                                                    <rect key="frame" x="20" y="20.000000000000004" width="270" height="34.333333333333343"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drama2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-OZ-L06">
                                                             <rect key="frame" x="0.0" y="0.0" width="60.333333333333336" height="34.333333333333336"/>
@@ -395,11 +395,28 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="m2q-k7-5e9" id="Jf2-pu-cOw"/>
+                        <segue destination="dLs-IY-YgW" kind="show" identifier="MovieDetailsVC" id="Vf1-4S-mUy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ca9-0v-bZu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6412.9770992366412" y="-797.18309859154931"/>
+        </scene>
+        <!--Movie DetailsVC-->
+        <scene sceneID="upH-dB-NUe">
+            <objects>
+                <viewController storyboardIdentifier="MovieDetailsVC" id="dLs-IY-YgW" customClass="MovieDetailsVC" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AMe-gl-ouv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kln-zF-9Lf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zVK-so-41X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sgt-pM-0uL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7176" y="-797"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="apo-L5-7Vc">

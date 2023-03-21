@@ -69,6 +69,9 @@ class DramaTypeTableViewCell: UITableViewCell {
         
       
     }
+    
+    
+  
 
 }
 
@@ -108,7 +111,10 @@ class DramaTypeTableViewCell: UITableViewCell {
             
         }
   
-        
+            func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//                let vc =
+//                let vc = storyboard?.instantiateViewController(withIdentifier: "MovieDetailsVC") as? MovieDetailsVC
+            }
     
     
 }

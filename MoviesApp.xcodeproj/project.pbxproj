@@ -24,6 +24,7 @@
 		E0E43A0329BDD8F4004FF567 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0E43A0129BDD8F4004FF567 /* Main.storyboard */; };
 		E0E43A0529BDD8F5004FF567 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0E43A0429BDD8F5004FF567 /* Assets.xcassets */; };
 		E0E43A0829BDD8F5004FF567 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0E43A0629BDD8F5004FF567 /* LaunchScreen.storyboard */; };
+		E0ECA12929C9F70D007DB2E1 /* MovieDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECA12829C9F70D007DB2E1 /* MovieDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		E0E43A0429BDD8F5004FF567 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0E43A0729BDD8F5004FF567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0E43A0929BDD8F5004FF567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0ECA12829C9F70D007DB2E1 /* MovieDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				E0E439FF29BDD8F4004FF567 /* ViewController.swift */,
 				E0B7507529C1117B00EEAABE /* data.swift */,
 				E0E43A0129BDD8F4004FF567 /* Main.storyboard */,
+				E0ECA12829C9F70D007DB2E1 /* MovieDetailsVC.swift */,
 				E06CA29F29C6FAFB002F3B41 /* MoviesData.swift */,
 				E06CA2A129C827EA002F3B41 /* MoviesManager.swift */,
 				E0B7507729C171C000EEAABE /* DramaTypeTableViewCell.swift */,
@@ -185,6 +188,7 @@
 				E0B7507229C0FADC00EEAABE /* HighRatedCollectionViewCell.swift in Sources */,
 				E0B7507A29C171E900EEAABE /* DramaTypeCollectionViewCell.swift in Sources */,
 				E06CA2A429C99871002F3B41 /* Extensions.swift in Sources */,
+				E0ECA12929C9F70D007DB2E1 /* MovieDetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
