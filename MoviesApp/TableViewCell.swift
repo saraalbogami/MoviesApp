@@ -31,7 +31,7 @@ class TableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         pageControlTopRated.numberOfPages = movies.count
-         featch()
+        featchMovies()
         
         startTimer()
         
@@ -47,11 +47,10 @@ class TableViewCell: UITableViewCell {
     var timer: Timer?
     var currentCellIndex = 0
     
-    func featch()  {
-        let movieURL = "https://4855c3e4-c1ea-4aec-84dc-621e909c441d.mock.pstmn.io/movies"
+    func featchMovies() {
+        let movieURL = "https://7f51f255-70c2-4d57-a519-652683a43e1d.mock.pstmn.io/movies"
         // https://4855c3e4-c1ea-4aec-84dc-621e909c441d.mock.pstmn.io/movies
 
-//       print(movieURL)
        
       let task = URLSession.shared.dataTask(with: URL(string:movieURL)!,completionHandler: { data, response, error in
                 
@@ -61,49 +60,41 @@ class TableViewCell: UITableViewCell {
                     return
                 }
           
-          
-          
-//
           if let response = response {
               print(response)
 
           }
-                // have data
-           // var movies:MoviesData?
             
             do{
                 // have data
                 self.movies = try JSONDecoder().decode([MoviesData].self, from: data)
-
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+                
             }catch{
                print("failed to convert")
             }
-             
-//          guard let json = self.movies else {
-//                 return
-//            }
+
           print(self.movies)
-          
-//          print(self.movies[0].movie_name)
-//            print(json.movie_name)
-//            print(json.movie_IMDb_rate)
-//            print(json.movie_genres)
-//            print(json.movie_duration)
+  
          
 
         })
+        
         task.resume()
        
         
-        collectionView.reloadData()
+        
       
     }
     func startTimer(){
         //
-        if currentCellIndex != 0 {
-            timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(moveToNexIndex), userInfo: nil, repeats: true)
-        }
-       
+//        if currentCellIndex != 0 {
+//            timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(moveToNexIndex), userInfo: nil, repeats: true)
+//        }
+      
+        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(moveToNexIndex), userInfo: nil, repeats: true)
     }
     
     @objc func moveToNexIndex(){
@@ -132,12 +123,17 @@ extension TableViewCell:UICollectionViewDelegate, UICollectionViewDataSource,UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCellHighRated", for: indexPath) as! HighRatedCollectionViewCell
-        
-        cell.imageHighRated.image =  UIImage(named: movies[indexPath.row].moviePoster)
+        let imagetoString = movies[indexPath.row].moviePoster
+        if let url = URL(string: imagetoString){
+            if  let data = try? Data(contentsOf: url) {
+                cell.imageHighRated.image = UIImage(data: data)
+            }
+        }
 //        cell.starsImg.image = UIImage(named: movies[indexPath.row])
         cell.movieNameLabel.text = movies[indexPath.row].movieName
-        cell.ratedOutOf5.text = String(movies[indexPath.row].movieIMDBRate)
-        cell.duration.text = movies[indexPath.row].movieDuration
+        cell.highRatedLable.text = String(movies[indexPath.row].movieIMDBRate)
+        cell.duration.text =  movies[indexPath.row].movieDuration
+        cell.moveType.text = movies[indexPath.row].movieGenres.first
         return cell
     }
     
@@ -147,7 +143,7 @@ extension TableViewCell:UICollectionViewDelegate, UICollectionViewDataSource,UIC
        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
        {
 
-           return CGSize(width: UIScreen.main.bounds.width, height: 112)
+           return CGSize(width: UIScreen.main.bounds.width, height: 150)
        }
     
     

@@ -52,41 +52,41 @@ struct MoviesData: Codable {
     }
 }
 
+//
+//struct Actors: Codable {
+//    let id, actorName: String
+//    let actorImage: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case actorName = "actor_name"
+//        case actorImage = "actor_image"
+//    }
+//}
 
-struct Actors: Codable {
-    let id, actorName: String
-    let actorImage: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case actorName = "actor_name"
-        case actorImage = "actor_image"
-    }
-}
-
-//typealias WelcomeActors = [Actors]
+//typealias Welcome = [Actors]
 
 
-struct Director: Codable {
-    let id, directorName: String
-    let directorImage: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case directorName = "director_name"
-        case directorImage = "director_image"
-    }
-}
-
+//struct Director: Codable {
+//    let id, directorName: String
+//    let directorImage: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case directorName = "director_name"
+//        case directorImage = "director_image"
+//    }
+//}
+//
 //typealias WelcomeDirector = [Director]
 
-
+//
 //struct Actors:Codable {
 //    var id = UUID(uuidString: "")
 //    var actor_name:String
 //    var actor_image:String
 //}
-
+//
 //struct Director:Codable {
 //    var id = UUID(uuidString: "")
 //    var director_name:String

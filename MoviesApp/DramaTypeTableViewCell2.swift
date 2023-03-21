@@ -12,7 +12,7 @@ class DramaTypeTableViewCell2: UITableViewCell {
    
     @IBOutlet weak var DramaTypeCollectionv2: UICollectionView!
     
-    var actors:[Actors] = []
+    var movies:[MoviesData] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,12 +34,12 @@ class DramaTypeTableViewCell2: UITableViewCell {
     extension DramaTypeTableViewCell2:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return actors.count
+        return movies.count
         //        return data[collectionView.tag].movies.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell2", for: indexPath) as! DramaTypeCollectionViewCell2
-        cell.DramaTypeImageCollection2.image = UIImage(named:actors[indexPath.count].actorImage)
+//        cell.DramaTypeImageCollection2.image = UIImage(named:actors[indexPath.count].actorImage)
         return cell
     }
         
