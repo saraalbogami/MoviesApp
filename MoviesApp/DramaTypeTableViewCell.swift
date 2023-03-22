@@ -7,12 +7,19 @@
 
 import UIKit
 
+
+typealias SeaAllClouser = ((_ index:Int?) -> Void)
+typealias DidSelectClouser = ((_ tableIndex:Int?, _ collectionIndex:Int?) -> Void)
+
 class DramaTypeTableViewCell: UITableViewCell {
 
     var movies:[MoviesData] = []
 
     @IBOutlet weak var DramaTypeCollectionv: UICollectionView!
-    
+    var index:Int?
+    var tableIndex:Int?
+    var onClickSeaAllClouser:SeaAllClouser?
+    var didSelectClouser:DidSelectClouser?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +36,7 @@ class DramaTypeTableViewCell: UITableViewCell {
     }
     
     func featchMovies() {
-        let movieURL = "https://7f51f255-70c2-4d57-a519-652683a43e1d.mock.pstmn.io/movies"
+        let movieURL = "https://11d9528c-d6bd-49b7-87cb-232cc0a0e490.mock.pstmn.io/movies"
         // https://4855c3e4-c1ea-4aec-84dc-621e909c441d.mock.pstmn.io/movies
 
        
@@ -80,6 +87,7 @@ class DramaTypeTableViewCell: UITableViewCell {
 
     extension DramaTypeTableViewCell:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(movies.count)
         return movies.count
 //        return data[collectionView.tag].movies.count
     }
@@ -87,12 +95,12 @@ class DramaTypeTableViewCell: UITableViewCell {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! DramaTypeCollectionViewCell
         let imagetoString = movies[indexPath.row].moviePoster
+        
         if let url = URL(string: imagetoString){
             if  let data = try? Data(contentsOf: url) {
                 cell.DramaTypeImage.image = UIImage(data: data)
             }
         }
-//        cell.DramaTypeImage.image = UIImage(named:movies[indexPath.count].moviePoster)
         return cell
     }
     
@@ -111,10 +119,11 @@ class DramaTypeTableViewCell: UITableViewCell {
             
         }
   
-            func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//                let vc =
-//                let vc = storyboard?.instantiateViewController(withIdentifier: "MovieDetailsVC") as? MovieDetailsVC
-            }
+         
     
+        
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            didSelectClouser?(index, indexPath.row)
+        }
     
 }

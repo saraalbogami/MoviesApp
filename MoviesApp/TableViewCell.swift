@@ -7,10 +7,16 @@
 
 import UIKit
 
+
+
 class TableViewCell: UITableViewCell {
     
     var movies:[MoviesData] = []
     var ratesMovie:[RateMovie] = []
+    var index:Int?
+    var tableIndex:Int?
+    var onClickSeaAllClouser:SeaAllClouser?
+    var didSelectClouser:DidSelectClouser?
     
     @IBOutlet weak var movieType: UILabel!
     
@@ -48,7 +54,7 @@ class TableViewCell: UITableViewCell {
     var currentCellIndex = 0
     
     func featchMovies() {
-        let movieURL = "https://7f51f255-70c2-4d57-a519-652683a43e1d.mock.pstmn.io/movies"
+        let movieURL = "https://11d9528c-d6bd-49b7-87cb-232cc0a0e490.mock.pstmn.io/movies"
         // https://4855c3e4-c1ea-4aec-84dc-621e909c441d.mock.pstmn.io/movies
 
        
@@ -88,6 +94,7 @@ class TableViewCell: UITableViewCell {
         
       
     }
+
     
     func fetchRateMovie(){
         let movieURL = "https://7f51f255-70c2-4d57-a519-652683a43e1d.mock.pstmn.io/moviesDirectors/:movie_id"
@@ -158,19 +165,17 @@ extension TableViewCell:UICollectionViewDelegate, UICollectionViewDataSource,UIC
         return 0
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc =
-////        let vc = storyboard?.instantiateViewController(withIdentifier: "MovieDetailsVC") as? MovieDetailsVC
-//    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-//        cell.imageHighRated.image = MovieData.
-//        cell.name =""
-//        let cellMovieType = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
-//        return cell
-//        return [cell,cellMovieType]
-   // }
+        didSelectClouser?(index, indexPath.row)
+        }
+    }
+
     
   
     
     
-}
+//}
