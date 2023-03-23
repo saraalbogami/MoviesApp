@@ -8,12 +8,12 @@
 import Foundation
 
 
-struct MovieData {
-    let sectionType: String
-//    let nameOfMovie: String
-//    let rate:String
-//    let persentageOf5: String
-//    let movieType: String
-//    let time: Date
-    let movies:[String]
-}
+//struct MovieData {
+//    let sectionType: String
+////    let nameOfMovie: String
+////    let rate:String
+////    let persentageOf5: String
+////    let movieType: String
+////    let time: Date
+//    let movies:[String]
+//}

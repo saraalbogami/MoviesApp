@@ -9,16 +9,9 @@ import UIKit
 
 
 
-
-var data = [MovieData(sectionType: "High Rated", movies: ["Top Gun ","4.8 out of 5","Action . 2 hr  9 min"]),MovieData(sectionType: "High Rated", movies: ["Top Gun ","4.8 out of 5","Action . 2 hr  9 min"]),MovieData(sectionType: "High Rated", movies: ["Top Gun ","4.8 out of 5","Action . 2 hr  9 min"])
-]
-
-//var data = [MovieData]()
-
-
 class ViewController: UIViewController {
-
-    @IBOutlet weak var cvWidth: NSLayoutConstraint!
+    
+    var movies:[MoviesData] = []
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -26,13 +19,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableview.dataSource = self
         tableview.delegate = self
+        tableview.reloadData()
+    }
+    
+    
+    func moveToMovieDetails(tableIndex:Int, collcIndex:Int){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MovieDetailsVC") as? MovieDetailsVC else{
+            return
+        }
+        vc.navigationController?.pushViewController(vc , animated: true)
+
+        
         
     }
-
-
+    
 }
-
-
 
 
 
@@ -48,18 +49,21 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellTableHighRated", for: indexPath) as! TableViewCell
             cell.collectionView.tag = 0
-            //            indexPath.section
+            
             return cell
-        }else if indexPath.row == 1 {
+        }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellTable", for: indexPath) as! DramaTypeTableViewCell
             cell.DramaTypeCollectionv.tag = 1
+            cell.didSelectClouser = { tabIndex, collcIndex in
+                print("didSelectClouser")
+                if let tabIndexp = tabIndex, let collcIndexp = collcIndex {
+                    self.moveToMovieDetails(tableIndex: tabIndexp, collcIndex: collcIndexp )
+                }
+
+            }
             return cell
         }
-        else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellTable2", for: indexPath) as! DramaTypeTableViewCell2
-            cell.DramaTypeCollectionv2.tag = 2
-            return cell
-        }
+        
     }
     
     
@@ -67,7 +71,5 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         350
     }
-    
-
     
 }
